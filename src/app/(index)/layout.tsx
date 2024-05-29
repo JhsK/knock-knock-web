@@ -1,3 +1,4 @@
+import Header from "@/ui/organism/Header";
 import Sidebar from "@/ui/organism/Sidebar";
 
 export default function IndexLayout({
@@ -6,9 +7,12 @@ export default function IndexLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex">
-      <Sidebar />
-      <section>{children}</section>
+    <div>
+      <Header />
+      <div className="flex">
+        <Sidebar />
+        <section>{children}</section>
+      </div>
     </div>
   );
 }

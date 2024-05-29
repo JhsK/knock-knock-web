@@ -1,6 +1,6 @@
-import Header from "@/ui/organism/Header";
 import type { Metadata } from "next";
 import "./globals.css";
+import { GlobalSvgProvider } from "@/components/provider/GlobalSvgProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
         {children}
+        <GlobalSvgProvider />
       </body>
     </html>
   );
