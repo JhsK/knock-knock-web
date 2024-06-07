@@ -1,0 +1,41 @@
+@import "react-big-calendar/lib/css/react-big-calendar.css";
+
+.rbc-month-view {
+  border: 1px solid #eaecf0;
+  border-left: none;
+}
+
+.rbc-month-header > .rbc-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.rbc-month-header > .rbc-header:nth-child(1) {
+  color: red;
+}
+
+.rbc-month-header > .rbc-header + .rbc-header {
+  border-left: 1px solid #eaecf0;
+}
+
+.rbc-month-row + .rbc-month-row {
+  border-top: 1px solid #eaecf0;
+}
+
+.rbc-date-cell {
+  padding-top: 16px;
+  padding-right: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.rbc-date-cell:nth-child(1) {
+  color: red;
+}
