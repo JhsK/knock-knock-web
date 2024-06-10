@@ -6,6 +6,7 @@ import "./index.css";
 import "dayjs/locale/ko";
 import MonthDateHeader from "@/ui/organism/Calendar/month/DateHeader";
 import MonthEvent from "@/ui/organism/Calendar/month/Event";
+import Toolbar from "@/ui/organism/Calendar/Toolbar";
 
 dayjs.locale("ko");
 const localizer = dayjsLocalizer(dayjs);
@@ -35,6 +36,7 @@ function BigCalendar() {
         endAccessor="end"
         components={{
           event: MonthEvent,
+          toolbar: Toolbar,
           month: {
             dateHeader: MonthDateHeader,
           },
