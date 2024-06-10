@@ -39,3 +39,11 @@
 .rbc-date-cell:nth-child(1) {
   color: red;
 }
+
+/* event */
+.rbc-event {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0;
+  background-color: transparent;
+}
