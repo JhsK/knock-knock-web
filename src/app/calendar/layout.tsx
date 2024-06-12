@@ -9,9 +9,9 @@ export default function CalendarLayout({
   return (
     <div>
       <Header />
-      <div className="flex">
+      <div className="flex h-full">
         <Sidebar />
-        <section className="w-full">{children}</section>
+        <section className="w-full h-without-header">{children}</section>
       </div>
     </div>
   );
