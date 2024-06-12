@@ -11,3 +11,7 @@ body {
     "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   max-width: 1440px;
 }
+
+.h-without-header {
+  height: calc(100vh - 64px); /* 뷰 높이 - 헤더 높이 */
+}
