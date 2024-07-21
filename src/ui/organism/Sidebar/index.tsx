@@ -1,5 +1,6 @@
 import SidebarBody from "./Body";
 import SidebarFooter from "./Footer";
+import SidebarHeader from "./Header";
 
 const SidebarContainer = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -10,6 +11,7 @@ const SidebarContainer = ({ children }: { children: React.ReactNode }) => {
 };
 
 export const Sidebar = Object.assign(SidebarContainer, {
+  Header: SidebarHeader,
   Body: SidebarBody,
   Footer: SidebarFooter,
 });
