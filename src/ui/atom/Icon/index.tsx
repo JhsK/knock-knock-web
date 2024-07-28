@@ -7,8 +7,8 @@ import { IconNamesType, IconSizeType } from "./config";
 
 export interface IIconProps extends HTMLAttributes<SVGSVGElement> {
   size?: IconSizeType;
-  fillColor?: string;
-  strokeColor?: string;
+  fill?: string;
+  stroke?: string;
   stopPropagation?: boolean;
   preventDefault?: boolean;
   id: IconNamesType;
@@ -17,8 +17,8 @@ export interface IIconProps extends HTMLAttributes<SVGSVGElement> {
 
 export function Icon({
   size = "default",
-  fillColor = "",
-  strokeColor = "",
+  fill,
+  stroke,
   id,
   stopPropagation,
   preventDefault,
@@ -30,8 +30,7 @@ export function Icon({
   return (
     <svg
       className={twMerge(SvgVariants({ size }), className)}
-      style={{ fill: "red" }}
-      // style={{ ...props.style }}
+      style={{ fill, ...props.style }}
       {...props}
       // onClick={(e) => {
       //   onClick?.(e);
@@ -39,7 +38,7 @@ export function Icon({
       //   stopPropagation && e.stopPropagation();
       // }}
     >
-      <use href={`#${id}`} className={UseVariants({})} />
+      <use href={`#${id}`} style={{ stroke }} />
     </svg>
   );
 }
@@ -57,12 +56,5 @@ const SvgVariants = cva("", {
       "3xl": "w-[120px] min-w-[120px] h-[120px]",
     },
     // cursor: cursorStyles,
-    // fillColor: createColorClasses("fill"),
-  },
-});
-
-const UseVariants = cva("", {
-  variants: {
-    // strokeColor: createColorClasses("stroke"),
   },
 });
