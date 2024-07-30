@@ -4,6 +4,7 @@ import { cva } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 import { IconNamesType, IconSizeType } from "./config";
+import { CursorType, cursorStyles } from "./cursor";
 
 export interface IIconProps extends HTMLAttributes<SVGSVGElement> {
   size?: IconSizeType;
@@ -12,31 +13,32 @@ export interface IIconProps extends HTMLAttributes<SVGSVGElement> {
   stopPropagation?: boolean;
   preventDefault?: boolean;
   id: IconNamesType;
-  //   cursor?: CursorType;
+  cursor?: CursorType;
 }
 
 export function Icon({
   size = "default",
-  fill,
+  fill = "#000000",
   stroke,
   id,
   stopPropagation,
   preventDefault,
-  //   cursor,
+  cursor,
   onClick,
   className,
   ...props
 }: IIconProps) {
   return (
     <svg
-      className={twMerge(SvgVariants({ size }), className)}
+      className={twMerge(SvgVariants({ size, cursor }), className)}
       style={{ fill, ...props.style }}
       {...props}
-      // onClick={(e) => {
-      //   onClick?.(e);
-      //   preventDefault && e.preventDefault();
-      //   stopPropagation && e.stopPropagation();
-      // }}
+      // onClick={onClick}
+      onClick={(e) => {
+        onClick?.(e);
+        preventDefault && e.preventDefault();
+        stopPropagation && e.stopPropagation();
+      }}
     >
       <use href={`#${id}`} style={{ stroke }} />
     </svg>
@@ -55,6 +57,6 @@ const SvgVariants = cva("", {
       "2xl": "w-[56px] min-w-[56px] h-[56px]",
       "3xl": "w-[120px] min-w-[120px] h-[120px]",
     },
-    // cursor: cursorStyles,
+    cursor: cursorStyles,
   },
 });
