@@ -1,18 +1,29 @@
 import { dayjs } from "@/lib/dayjs";
+import { Icon } from "@/ui/atom/Icon";
 import { ToolbarProps } from "react-big-calendar";
 
-function Toolbar({ date }: ToolbarProps) {
+function Toolbar({ date, onNavigate }: ToolbarProps) {
   const title = dayjs(date).format(`YYYY년 M월`);
 
   return (
     <div className="w-full flex items-center justify-between px-6 pb-[18px] pt-[34px]">
-      <div>
-        <span>{title}</span>
-        <button>이전</button>
-        <button>다움</button>
+      <div className="flex items-center gap-2">
+        <span className="font-medium text-2xl">{title}</span>
+        <div className="flex items-center gap-1">
+          <Icon
+            id="chevronLeft"
+            cursor="pointer"
+            onClick={() => onNavigate("PREV")}
+          />
+          <Icon
+            id="chevronRight"
+            cursor="pointer"
+            onClick={() => onNavigate("NEXT")}
+          />
+        </div>
       </div>
       <div>
-        <span>오늘</span>
+        <span onClick={() => onNavigate("PREV")}>오늘</span>
         <span>월간</span>
         <input type="text" />
       </div>

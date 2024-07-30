@@ -1,5 +1,6 @@
+import DayPicker from "@/ui/DayPicker";
 import Header from "@/ui/organism/Header";
-import Sidebar from "@/ui/organism/Sidebar";
+import { Sidebar } from "@/ui/organism/Sidebar";
 
 export default function CalendarLayout({
   children,
@@ -10,7 +11,12 @@ export default function CalendarLayout({
     <div>
       <Header />
       <div className="flex h-full">
-        <Sidebar />
+        <Sidebar>
+          <Sidebar.Header>내 일정 추가</Sidebar.Header>
+          <Sidebar.Body>
+            <DayPicker />
+          </Sidebar.Body>
+        </Sidebar>
         <section className="w-full h-without-header">{children}</section>
       </div>
     </div>

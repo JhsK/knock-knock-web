@@ -10,6 +10,7 @@ import Toolbar from "@/ui/organism/Calendar/Toolbar";
 import WeekDateHeader from "@/ui/organism/Calendar/week/DateHeader";
 import TimeGutterHeader from "@/ui/organism/Calendar/TimeGutterHeader";
 import TimeSlotWrapper from "@/ui/organism/Calendar/TimeSlotWrapper";
+import { useState } from "react";
 
 dayjs.locale("ko");
 const localizer = dayjsLocalizer(dayjs);
@@ -32,15 +33,19 @@ const mockEvent = [
 ];
 
 function BigCalendar() {
+  const [date, setDate] = useState(dayjs().format());
+
   return (
     <div className="w-full h-full">
       <Calendar
         localizer={localizer}
         events={mockEvent}
+        date={date}
         views={["week", "day", "month"]}
-        defaultView="week"
+        defaultView="month"
         startAccessor="start"
         endAccessor="end"
+        onNavigate={(date) => setDate(dayjs(date).format())}
         formats={{
           timeGutterFormat: (date, culture, localizer) => {
             if (localizer) {
