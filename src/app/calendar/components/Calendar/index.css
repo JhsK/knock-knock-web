@@ -88,6 +88,9 @@
 }
 
 .rbc-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 0;
   border: none;
 }
@@ -126,4 +129,12 @@
 
 .rbc-today {
   background-color: #f9fafb;
+}
+
+.rbc-time-view .rbc-row {
+  min-height: 40px;
+}
+
+.rbc-time-content {
+  border-top: 1px solid #eaecf0;
 }

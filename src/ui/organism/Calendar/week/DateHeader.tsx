@@ -7,8 +7,8 @@ function WeekDateHeader({ date }: HeaderProps) {
 
   return (
     <div>
-      <span className="mr-1">{dayNumber}</span>
-      <span>{dayKr}</span>
+      <span className="mr-1 text-[#98A2B3]">{dayKr}</span>
+      <span className="text-black">{dayNumber}</span>
     </div>
   );
 }
