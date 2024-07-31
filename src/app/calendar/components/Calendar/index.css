@@ -1,5 +1,6 @@
 @import "react-big-calendar/lib/css/react-big-calendar.css";
 
+/* month */
 .rbc-month-view {
   border: 1px solid #eaecf0;
   border-left: none;
@@ -38,6 +39,22 @@
 
 .rbc-date-cell:nth-child(1) {
   color: red;
+}
+
+.rbc-off-range-bg {
+  background-color: transparent;
+}
+
+.rbc-month-row .rbc-row-bg .rbc-today {
+  background-color: transparent;
+}
+
+.rbc-off-range {
+  color: #667085;
+}
+
+.rbc-row-content .rbc-row:nth-child(1) {
+  margin-bottom: 4px;
 }
 
 /* event */
