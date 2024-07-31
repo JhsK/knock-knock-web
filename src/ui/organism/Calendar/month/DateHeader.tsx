@@ -9,7 +9,7 @@ function MonthDateHeader({ date, label }: DateHeaderProps) {
       className={cn(
         "",
         isToday &&
-          "rounded-full bg-slate-500 text-white w-[22px] h-[22px] inline-flex items-center justify-center"
+          "rounded-full bg-[#84ADFF] text-white w-[22px] h-[22px] inline-flex items-center justify-center"
       )}
     >
       {label}

@@ -11,7 +11,7 @@ interface IMonthEventProps extends EventProps<ICustomEvent> {}
 
 function MonthEvent({ title, event }: IMonthEventProps) {
   return (
-    <div className="w-full border-l-4 border-blue-600 bg-blue-100 p-1.5">
+    <div className="w-full border-l-4 border-blue-600 bg-blue-100 p-1.5 h-7 flex items-center">
       <span className="text-xs text-blue-800">{title}</span>
     </div>
   );
