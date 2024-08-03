@@ -1,3 +1,4 @@
+import DayPicker from "@/ui/DayPicker";
 import Header from "@/ui/organism/Header";
 import { Sidebar } from "@/ui/organism/Sidebar";
 
@@ -11,7 +12,10 @@ export default function IndexLayout({
       <Header />
       <div className="flex">
         <Sidebar>
-          <Sidebar.Body>지원한 공고 추가</Sidebar.Body>
+          <Sidebar.Header>지원한 공고 추가</Sidebar.Header>
+          <Sidebar.Body>
+            <DayPicker />
+          </Sidebar.Body>
         </Sidebar>
         <section>{children}</section>
       </div>

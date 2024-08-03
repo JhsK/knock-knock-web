@@ -10,6 +10,7 @@ import TimeGutterHeader from "./TimeGutterHeader";
 import TimeSlotWrapper from "./TimeSlotWrapper";
 import MonthDateHeader from "./month/DateHeader";
 import WeekDateHeader from "./week/DateHeader";
+import "./style/common.css";
 
 dayjs.locale("ko");
 const localizer = dayjsLocalizer(dayjs);
@@ -52,13 +53,9 @@ const mockEvent = [
   // },
 ];
 
-interface IBigCalendarProps {
-  view: View;
-  onView: (view: View) => void;
-}
-
-function BigCalendar({ view, onView }: IBigCalendarProps) {
+function BigCalendar() {
   const [date, setDate] = useState(dayjs().format());
+  const [view, setView] = useState<View>("month");
 
   return (
     <div className="w-full h-full">
@@ -71,7 +68,7 @@ function BigCalendar({ view, onView }: IBigCalendarProps) {
         view={view}
         startAccessor="start"
         endAccessor="end"
-        onView={onView}
+        onView={(view) => setView(view)}
         onNavigate={(date) => setDate(dayjs(date).format())}
         formats={{
           timeGutterFormat: (date, culture, localizer) => {
