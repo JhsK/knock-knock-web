@@ -1,0 +1,9 @@
+@import "react-big-calendar/lib/css/react-big-calendar.css";
+
+/* event */
+.rbc-event {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0;
+  background-color: transparent;
+}

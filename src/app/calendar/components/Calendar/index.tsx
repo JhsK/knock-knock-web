@@ -1,75 +1,30 @@
 "use client";
 
-import { Calendar, dayjsLocalizer } from "react-big-calendar";
-import dayjs from "dayjs";
-import "./index.css";
-import "dayjs/locale/ko";
-import MonthDateHeader from "@/ui/organism/Calendar/month/DateHeader";
-import MonthEvent from "@/ui/organism/Calendar/month/Event";
-import Toolbar from "@/ui/organism/Calendar/Toolbar";
-import WeekDateHeader from "@/ui/organism/Calendar/week/DateHeader";
-import TimeGutterHeader from "@/ui/organism/Calendar/TimeGutterHeader";
-import TimeSlotWrapper from "@/ui/organism/Calendar/TimeSlotWrapper";
 import { useState } from "react";
+import { View } from "react-big-calendar";
+import MonthBigCalendar from "./Month";
+import WeekBigCalendar from "./Week";
+import DayBigCalendar from "./Day";
 
-dayjs.locale("ko");
-const localizer = dayjsLocalizer(dayjs);
+function IndexBigCalendar() {
+  const [view, setView] = useState<View>("month");
 
-const mockEvent = [
-  {
-    id: 1,
-    title: "Long Event",
-    type: "test1",
-    start: new Date(2024, 5, 9),
-    end: new Date(2024, 5, 9),
-  },
-  // {
-  //   id: 2,
-  //   title: "Long Even2",
-  //   type: "test2",
-  //   start: new Date(2024, 5, 13, 0, 0, 0),
-  //   end: new Date(2024, 5, 13, 0, 0, 0),
-  // },
-];
+  const handleChangeView = (view: View) => {
+    setView(view);
+  };
 
-function BigCalendar() {
-  const [date, setDate] = useState(dayjs().format());
+  const renderBigCalendarByView = () => {
+    if (view === "month")
+      return <MonthBigCalendar view={view} onView={handleChangeView} />;
+    if (view === "week")
+      return <WeekBigCalendar view={view} onView={handleChangeView} />;
+    if (view === "day")
+      return <DayBigCalendar view={view} onView={handleChangeView} />;
 
-  return (
-    <div className="w-full h-full">
-      <Calendar
-        localizer={localizer}
-        events={mockEvent}
-        date={date}
-        views={["week", "day", "month"]}
-        defaultView="month"
-        startAccessor="start"
-        endAccessor="end"
-        onNavigate={(date) => setDate(dayjs(date).format())}
-        formats={{
-          timeGutterFormat: (date, culture, localizer) => {
-            if (localizer) {
-              return localizer.format(date, `A h시`, culture);
-            }
-            return dayjs().format("A h시");
-          },
-        }}
-        components={{
-          event: MonthEvent,
-          toolbar: Toolbar,
-          timeGutterHeader: TimeGutterHeader,
-          timeGutterWrapper: TimeSlotWrapper,
-          month: {
-            dateHeader: MonthDateHeader,
-          },
-          week: {
-            header: WeekDateHeader,
-          },
-        }}
-        // slotPropGetter={customSlotPropGetter}
-      />
-    </div>
-  );
+    return <></>;
+  };
+
+  return <>{renderBigCalendarByView()}</>;
 }
 
-export default BigCalendar;
+export default IndexBigCalendar;

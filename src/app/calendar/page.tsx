@@ -1,7 +1,7 @@
-import BigCalendar from "./components/Calendar";
+import IndexBigCalendar from "./components/Calendar";
 
 function CalendarPage() {
-  return <BigCalendar />;
+  return <IndexBigCalendar />;
 }
 
 export default CalendarPage;
