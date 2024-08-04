@@ -10,15 +10,7 @@ export default function CalendarLayout({
   return (
     <div>
       <Header />
-      <div className="flex h-full">
-        <Sidebar>
-          <Sidebar.Header>내 일정 추가</Sidebar.Header>
-          <Sidebar.Body>
-            <DayPicker />
-          </Sidebar.Body>
-        </Sidebar>
-        <section className="w-full h-without-header">{children}</section>
-      </div>
+      {children}
     </div>
   );
 }
