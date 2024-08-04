@@ -20,5 +20,15 @@ export const spriteCode = (
         stroke="fill"
       />
     </symbol>
+    <symbol
+      viewBox="0 0 20 20"
+      id="material-symbols_add"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.167 10.833h-5V9.166h5v-5h1.667v5h5v1.667h-5v5H9.167v-5Z"
+        stroke="fill"
+      />
+    </symbol>
   </svg>
 );
