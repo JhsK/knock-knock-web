@@ -11,6 +11,7 @@ import TimeSlotWrapper from "./TimeSlotWrapper";
 import MonthDateHeader from "./month/DateHeader";
 import WeekDateHeader from "./week/DateHeader";
 import "./style/common.css";
+import DayDateHeader from "./day/DateHeader";
 
 dayjs.locale("ko");
 const localizer = dayjsLocalizer(dayjs);
@@ -58,7 +59,7 @@ function BigCalendar() {
   const [view, setView] = useState<View>("month");
 
   return (
-    <div className="w-full h-full">
+    <div className={`w-full h-full big-calendar-${view}`}>
       <Calendar
         localizer={localizer}
         events={mockEvent}
@@ -88,6 +89,9 @@ function BigCalendar() {
           },
           week: {
             header: WeekDateHeader,
+          },
+          day: {
+            header: DayDateHeader,
           },
         }}
         // slotPropGetter={customSlotPropGetter}
