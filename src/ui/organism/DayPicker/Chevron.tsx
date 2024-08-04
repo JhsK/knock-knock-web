@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Icon } from "../atom/Icon";
+import { Icon } from "@/ui/atom/Icon";
 
 interface IDayPickerChevronProps {
   className?: string;

@@ -1,4 +1,4 @@
-import DayPicker from "@/ui/DayPicker";
+import DayPicker from "@/ui/organism/DayPicker";
 import Header from "@/ui/organism/Header";
 import { Sidebar } from "@/ui/organism/Sidebar";
 
