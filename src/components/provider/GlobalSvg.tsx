@@ -13,5 +13,8 @@ export function GlobalSvgProvider() {
 
   if (!mounted) return null;
 
-  return createPortal(spriteCode, document.body);
+  return createPortal(
+    <div className="hidden">{spriteCode}</div>,
+    document.body
+  );
 }

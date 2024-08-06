@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { GlobalSvgProvider } from "@/components/provider/GlobalSvgProvider";
+import { GlobalSvgProvider } from "@/components/provider/GlobalSvg";
 
 export const metadata: Metadata = {
   title: "Create Next App",
