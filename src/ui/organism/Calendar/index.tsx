@@ -3,7 +3,7 @@
 import dayjs from "dayjs";
 import "dayjs/locale/ko";
 import { useState } from "react";
-import { Calendar, View, dayjsLocalizer } from "react-big-calendar";
+import { Calendar, SlotInfo, View, dayjsLocalizer } from "react-big-calendar";
 import MonthEvent from "./month/Event";
 import Toolbar from "./Toolbar";
 import TimeGutterHeader from "./TimeGutterHeader";
@@ -12,6 +12,10 @@ import MonthDateHeader from "./month/DateHeader";
 import WeekDateHeader from "./week/DateHeader";
 import "./style/common.css";
 import DayDateHeader from "./day/DateHeader";
+
+interface IBigCalendarProps {
+  handleSelectSlot?: (slotInfo: SlotInfo) => void;
+}
 
 dayjs.locale("ko");
 const localizer = dayjsLocalizer(dayjs);
@@ -54,7 +58,7 @@ const mockEvent = [
   // },
 ];
 
-function BigCalendar() {
+function BigCalendar({ handleSelectSlot }: IBigCalendarProps) {
   const [date, setDate] = useState(dayjs().format());
   const [view, setView] = useState<View>("month");
 
@@ -69,8 +73,10 @@ function BigCalendar() {
         view={view}
         startAccessor="start"
         endAccessor="end"
+        selectable
         onView={(view) => setView(view)}
         onNavigate={(date) => setDate(dayjs(date).format())}
+        onSelectSlot={handleSelectSlot}
         formats={{
           timeGutterFormat: (date, culture, localizer) => {
             if (localizer) {
