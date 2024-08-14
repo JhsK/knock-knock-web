@@ -1,15 +1,16 @@
 "use client";
 
-import useAuthStore from "@/store/auth";
-import { useSearchParams } from "next/navigation";
+import { setAccessToken } from "@/api";
+import { useRouter, useSearchParams } from "next/navigation";
 
 function LoginRedirectPage() {
-  const setAccessToken = useAuthStore((state) => state.setAccessToken);
+  const { replace } = useRouter();
   const search = useSearchParams();
   const accessToken = search.get("accessToken");
 
   if (accessToken) {
     setAccessToken(accessToken);
+    replace("/");
   }
 
   return <></>;
