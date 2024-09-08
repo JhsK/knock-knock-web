@@ -1,35 +1,36 @@
+"use client";
 import Link from "next/link";
+import { Text } from "../atom/Text";
+import { usePathname } from "next/navigation";
 
 const menus = [
   {
-    title: "지원관리",
-    href: "/#",
+    title: "지원 현황",
+    href: "/register",
   },
   {
-    title: "내 목표",
-    href: "/#",
+    title: "내 일정",
+    href: "/calendar",
   },
   {
-    title: "캘린더",
-    href: "/#",
-  },
-  {
-    title: "북마크",
-    href: "/#",
-  },
-  {
-    title: "자소서",
-    href: "/#",
+    title: "저장한 공고",
+    href: "/bookmark",
   },
 ];
 
 function Menu() {
+  const pathname = usePathname();
+
   return (
     <nav>
       <ul className="flex items-center gap-4">
         {menus.map((menu, i) => (
           <li key={i} className="cursor-pointer">
-            <Link href={menu.href}>{menu.title}</Link>
+            <Link href={menu.href}>
+              <Text weight={menu.href === pathname ? "bold" : "regular"}>
+                {menu.title}
+              </Text>
+            </Link>
           </li>
         ))}
       </ul>

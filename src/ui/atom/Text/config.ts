@@ -1,9 +1,9 @@
 import { ElementType } from "react";
 import config from "../../../../tailwind.config";
 
-export type TextVariants = keyof typeof config.theme.fontSize;
+export type TextVariantsType = keyof typeof config.theme.fontSize;
 
-export const defaultVariantsTag: Record<TextVariants, ElementType> = {
+export const defaultVariantsTag: Record<TextVariantsType, ElementType> = {
   "display-1": "h1",
   "display-2": "h2",
   "title-1": "h3",

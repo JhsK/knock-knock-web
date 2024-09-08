@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { TextVariantsType, defaultVariantsTag } from "./config";
 
 interface ITextProps extends Omit<HTMLAttributes<HTMLElement>, "color"> {
-  variant: TextVariantsType;
+  variant?: TextVariantsType;
   weight?: "regular" | "medium" | "semi-bold" | "bold";
 }
 
@@ -25,6 +25,7 @@ export const Text = ({
       className={cn(
         TextVariants({
           variant,
+          weight,
           //   color,
         }),
         className
